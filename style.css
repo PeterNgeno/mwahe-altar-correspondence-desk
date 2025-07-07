@@ -1,35 +1,11 @@
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background: #f0f0f0;
-}
+/* Updated style.css for blue background with stripes */
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-}
+body { font-family: Arial, sans-serif; text-align: center; background: linear-gradient( to bottom, #0000FF,   /* Blue / #FFFFFF,   / White / #0000FF,   / Blue / #FFFFFF,   / White / #FF0000,   / Red / #FFFFFF,   / White / #FFD700    / Gold */ ); background-repeat: no-repeat; background-attachment: fixed; min-height: 100vh; margin: 0; padding: 0; }
 
-.gallery-item {
-  background: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; padding: 1rem; }
 
-.gallery-item img,
-.gallery-item video {
-  max-width: 100%;
-  border-radius: 4px;
-}
+.gallery-item { background: #fff; padding: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 
-.download-btn {
-  margin-top: 10px;
-  background: #007BFF;
-  color: white;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+.gallery-item img, .gallery-item video { max-width: 100%; border-radius: 4px; }
+
+.download-btn { margin-top: 10px; background: #007BFF; color: white; padding: 5px 10px; border: none; border-radius: 4px; cursor: pointer; }
