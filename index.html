@@ -1,4 +1,5 @@
-<!-- index.html (Gallery Page) --><!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,62 +9,9 @@
 </head>
 <body>
   <h1>Mwahe Altar Media Gallery</h1>
-  <div class="gallery" id="gallery"></div>  <script src="gallery.js"></script>  <script src="download-protect.js"></script></body>
-</html><!-- style.css -->body { font-family: Arial, sans-serif; text-align: center; background: #f0f0f0; } .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; padding: 1rem; } .gallery-item { background: #fff; padding: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); } .gallery-item img, .gallery-item video { max-width: 100%; border-radius: 4px; } .download-btn { margin-top: 10px; background: #007BFF; color: white; padding: 5px 10px; border: none; border-radius: 4px; cursor: pointer; }
+  <div class="gallery" id="gallery"></div>
 
-<!-- gallery.js -->const mediaItems = [ // Add your media filenames here (images/videos) { type: 'image', src: 'media/photo1.jpg' }, { type: 'video', src: 'media/video1.mp4' } ];
-
-const gallery = document.getElementById('gallery'); mediaItems.forEach(item => { const div = document.createElement('div'); div.className = 'gallery-item';
-
-const media = item.type === 'image' ? <img src="${item.src}" alt="Image"> : <video controls><source src="${item.src}" type="video/mp4"></video>;
-
-div.innerHTML = media + <button class="download-btn" onclick="downloadMedia('${item.src}')">Download</button>;
-
-gallery.appendChild(div); });
-
-<!-- download-protect.js -->function downloadMedia(filePath) { const church = prompt("Enter Church Name:"); const phone = prompt("Enter your phone number:");
-
-if (!church || !phone) return alert("Both fields are required.");
-
-if (church.toLowerCase() !== 'mwahe altar') { return alert("Incorrect Church Name."); }
-
-// Send download log to server fetch('/log-download', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ phone, file: filePath }) });
-
-// Trigger download const a = document.createElement('a'); a.href = filePath; a.download = filePath.split('/').pop(); a.click(); }
-
-<!-- admin.html --><!DOCTYPE html><html>
-<head>
-  <meta charset="UTF-8">
-  <title>Admin Upload - Mwahe Altar</title>
-</head>
-<body>
-  <h2>Admin Upload Page</h2>
-  <form id="loginForm">
-    <input type="text" placeholder="Username" id="username" required>
-    <input type="password" placeholder="Password" id="password" required>
-    <button type="submit">Login</button>
-  </form>  <div id="uploadSection" style="display:none">
-    <h3>Upload Media</h3>
-    <input type="file" multiple id="fileInput">
-    <button onclick="uploadFiles()">Upload</button>
-  </div>  <script>
-    const loginForm = document.getElementById('loginForm');
-    loginForm.onsubmit = function(e) {
-      e.preventDefault();
-      const user = document.getElementById('username').value;
-      const pass = document.getElementById('password').value;
-      if (user === 'petero' && pass === 'yourpassword') {
-        loginForm.style.display = 'none';
-        document.getElementById('uploadSection').style.display = 'block';
-      } else {
-        alert('Access Denied');
-      }
-    }
-
-    function uploadFiles() {
-      const files = document.getElementById('fileInput').files;
-      alert(`Pretending to upload ${files.length} file(s). Actual upload backend needed.`);
-      // You'd need a backend handler for real uploads
-    }
-  </script></body>
+  <script src="gallery.js"></script>
+  <script src="download-protect.js"></script>
+</body>
 </html>
