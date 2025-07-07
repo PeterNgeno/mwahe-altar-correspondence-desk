@@ -4,15 +4,22 @@ const mediaItems = [
 ];
 
 const gallery = document.getElementById('gallery');
+
 mediaItems.forEach(item => {
   const div = document.createElement('div');
   div.className = 'gallery-item';
 
-  const media = item.type === 'image'
-    ? `<img src="${item.src}" alt="Image">`
-    : `<video controls><source src="${item.src}" type="video/mp4"></video>`;
+  let content = '';
 
-  div.innerHTML = media + `
+  if (item.type === 'image') {
+    content = `<img src="${item.src}" alt="Image">`;
+  } else if (item.type === 'video') {
+    content = `<video controls width="100%"><source src="${item.src}" type="video/mp4">Your browser does not support the video tag.</video>`;
+  }
+
+  div.innerHTML = `
+    ${content}
+    <br>
     <button class="download-btn" onclick="downloadMedia('${item.src}')">Download</button>
   `;
 
